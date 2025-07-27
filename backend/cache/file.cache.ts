@@ -42,5 +42,10 @@ export const getCachedFile = async (patientId: string) => {
 }
 
 
+export const clearFileCache = () => {
+    cache.clear();
+}
+
+
 
 

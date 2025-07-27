@@ -1,6 +1,6 @@
 import type {Request, Response} from 'express';
 import FileSchema from '../models/file.model.ts';
-import {getCachedFile} from "../cache/file.cache.js";
+import {clearFileCache, getCachedFile} from "../cache/file.cache.js";
 
 /**
  * Creates a new file record in the database.
@@ -25,6 +25,10 @@ export const createFile = async (req: Request, res: Response) => {
         });
 
         await file.save();
+        /**
+         * Clear cache everytime there's an update
+         */
+        clearFileCache();
         console.log(`File created for patient ${patientId} by doctor ${doctorId}`);
 
         res.status(201).json({message: 'File created successfully', file});
