@@ -43,16 +43,18 @@ export default function PatientDashboard() {
         });
     };
 
+    /**
+     * Cache implementation using useRef for storing appointment data
+     * Cache structure contains:
+     * - data: The appointment data
+     * - expiry: Timestamp when cache expires
+     */
+    const cache = useRef<{
+        data: any; expiry: number;
+    } | null>(null);
+
     useEffect(() => {
-        /**
-         * Cache implementation using useRef for storing appointment data
-         * Cache structure contains:
-         * - data: The appointment data
-         * - expiry: Timestamp when cache expires
-         */
-        const cache = useRef<{
-            data: any; expiry: number;
-        } | null>(null);
+
 
         /**
          * Fetches appointments data with caching strategy:

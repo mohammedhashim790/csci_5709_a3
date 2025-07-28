@@ -1,6 +1,6 @@
 import type {Request, Response} from 'express';
 import FileSchema from '../models/file.model.ts';
-import {clearFileCache, getCachedFile} from "../cache/file.cache.js";
+import {clearFileCache, getCachedFile} from "../cache/file.cache.ts";
 
 /**
  * Creates a new file record in the database.

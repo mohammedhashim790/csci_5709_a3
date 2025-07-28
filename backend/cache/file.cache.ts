@@ -3,7 +3,7 @@
  * to improve performance and reduce database load.
  */
 
-import FileSchema from "../models/file.model.js";
+import FileSchema from "../models/file.model.ts";
 
 type CacheEntry = {
     data: any[]; timestamp: number;
